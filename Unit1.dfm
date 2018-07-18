@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 304
-  Top = 378
+  Left = 340
+  Top = 54
   Width = 910
   Height = 480
   AlphaBlend = True
@@ -78,6 +78,7 @@ object Form1: TForm1
     Height = 377
     ItemHeight = 13
     TabOrder = 3
+    OnClick = ListBox1Click
     OnDblClick = ListBox1DblClick
   end
   object Button2: TButton
@@ -139,8 +140,9 @@ object Form1: TForm1
     Top = 0
     Width = 75
     Height = 25
-    Caption = 'Button8'
+    Caption = 'Delete'
     TabOrder = 10
+    OnClick = Button8Click
   end
   object OpenDialog1: TOpenDialog
     Options = [ofHideReadOnly, ofAllowMultiSelect, ofEnableSizing]

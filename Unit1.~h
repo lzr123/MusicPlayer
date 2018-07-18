@@ -53,6 +53,8 @@ __published:	// IDE-managed Components
 		void __fastcall Button6Click(TObject *Sender);
 		void __fastcall Button7Click(TObject *Sender);
     	void __fastcall dealWithBoard();
+	void __fastcall Button8Click(TObject *Sender);
+	void __fastcall ListBox1Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 
@@ -61,6 +63,7 @@ public:		// User declarations
        int current_song_index;
        bool is_playing;
        int mode;
+       bool erase_activate;
        enum mode_type{sequencial=0, single=1, random=2};
 
        std::vector<AnsiString> song_name_list;

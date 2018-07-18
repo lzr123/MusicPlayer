@@ -21,6 +21,7 @@ __fastcall TForm1::TForm1(TComponent* Owner)
     song_list_bottom_index = 0;
     current_song_index = 0;
     is_playing = false;
+    erase_activate = false;
     mode = sequencial;
 
 	Label1->Caption = "No music playing now";
@@ -44,7 +45,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
                     if(iter == song_name_list.end())
                     {
                         song_name_list.push_back(OpenDialog1->Files->Strings[i]);
-                        ListBox1->Items->Add(AnsiString(i+1) + "  " + getSongName(song_name_list[i]));
+                        ListBox1->Items->Add(getSongName(OpenDialog1->Files->Strings[i]));
                         song_count++;
                     }
                 	
@@ -288,4 +289,48 @@ void __fastcall TForm1::dealWithBoard()
 }
 
 
+
+void __fastcall TForm1::Button8Click(TObject *Sender)
+{
+	erase_activate = !erase_activate;	
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::ListBox1Click(TObject *Sender)
+{
+	if(erase_activate)
+    {
+    	int pos = ListBox1->ItemIndex;
+        song_name_list.erase(song_name_list.begin() + pos);
+        ListBox1->DeleteSelected();
+        song_count = song_name_list.size();
+
+        if(song_name_list.size() != 0)
+        {
+        	if(current_song_index >= song_name_list.size())
+            {
+            	current_song_index = song_name_list.size()-1;
+                loadMusicAndPlay(song_name_list[current_song_index]);
+                updateTimeDisplay(MediaPlayer1->Position, Label2);
+                updateTimeDisplay(MediaPlayer1->Length, Label4);
+            }
+            else
+            {
+            	loadMusicAndPlay(song_name_list[current_song_index]);
+                updateTimeDisplay(MediaPlayer1->Position, Label2);
+                updateTimeDisplay(MediaPlayer1->Length, Label4);
+            }
+        }
+        else
+        {
+        	current_song_index = 0;
+            MediaPlayer1->Stop();
+            loadMusicAndPlay("");
+            updateTimeDisplay(0, Label2);
+            updateTimeDisplay(0, Label4);
+            Label1->Caption = "No music playing now";
+        }
+    }
+}
+//---------------------------------------------------------------------------
 
