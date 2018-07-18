@@ -8,11 +8,11 @@
 #include <vector>
 #include <ctime>
 #include <cstdlib>
+#include <algorithm>
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 TForm1 *Form1;
-//int song_count = 0;
 //---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner)
         : TForm(Owner)
@@ -36,21 +36,28 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
         if(OpenDialog1->Execute())
         {
                 Timer1->Enabled = true;
-                song_count = song_count + OpenDialog1->Files->Count;
 
                 for(int i = 0; i < OpenDialog1->Files->Count; i++)
                 {
-                	song_name_list.push_back(OpenDialog1->Files->Strings[i]);
+                	std::vector<AnsiString>::iterator iter;
+                    iter = std::find(song_name_list.begin(), song_name_list.end(), OpenDialog1->Files->Strings[i]);
+                    if(iter == song_name_list.end())
+                    {
+                        song_name_list.push_back(OpenDialog1->Files->Strings[i]);
+                        ListBox1->Items->Add(AnsiString(i+1) + "  " + getSongName(song_name_list[i]));
+                        song_count++;
+                    }
+                	
                 }
 
-                for(int i = song_list_bottom_index; i < (OpenDialog1->Files->Count) + song_list_bottom_index; i++)
+                for(int i = song_list_bottom_index; i < (song_count) + song_list_bottom_index; i++)
                 {
-                	ListBox1->Items->Add(AnsiString(i+1) + "  " + getSongName(song_name_list[i]));
-                   
+
+
                 }
                 song_list_bottom_index = song_name_list.size();
 
-
+                ListBox1->ItemIndex = current_song_index;
                 loadMusicAndPlay(song_name_list[current_song_index]);
                 updateTimeDisplay(MediaPlayer1->Position, Label2);
                 updateTimeDisplay(MediaPlayer1->Length, Label4);
@@ -189,14 +196,17 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 //---------------------------------------------------------------------------
 
 
-
+//Prev song button click event call back function
 void __fastcall TForm1::Button3Click(TObject *Sender)
 {
 	if(song_name_list.size())
     {
     	current_song_index--;
         if(current_song_index < 0)
+        {
         	current_song_index = song_count-1;
+            ListBox1->ItemIndex = current_song_index;
+        }
         loadMusicAndPlay(song_name_list[current_song_index]);
         updateTimeDisplay(MediaPlayer1->Length, Label4);
         updateTimeDisplay(MediaPlayer1->Position, Label2);
@@ -204,13 +214,18 @@ void __fastcall TForm1::Button3Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+
+//Next song button click event call back function
 void __fastcall TForm1::Button4Click(TObject *Sender)
 {
     if(song_name_list.size())
     {
     	current_song_index++;
         if(current_song_index >= song_count)
+        {
         	current_song_index = 0;
+            ListBox1->ItemIndex = current_song_index;
+        }
         loadMusicAndPlay(song_name_list[current_song_index]);
         updateTimeDisplay(MediaPlayer1->Length, Label4);
         updateTimeDisplay(MediaPlayer1->Position, Label2);
@@ -243,7 +258,8 @@ void __fastcall TForm1::dealWithBoard()
     {
        //	MediaPlayer1->Stop();
     	current_song_index++;
-         Label3->Caption = current_song_index;
+        ListBox1->ItemIndex = current_song_index;
+
     	if (current_song_index >= song_count)
     		current_song_index = 0;
         Label3->Caption = "0";
@@ -261,6 +277,7 @@ void __fastcall TForm1::dealWithBoard()
     	srand(time(NULL));
     	int next_song_index = std::rand()%(song_name_list.size());
     	current_song_index = next_song_index;
+        ListBox1->ItemIndex = current_song_index;
         
         loadMusicAndPlay(song_name_list[current_song_index]);
     	updateTimeDisplay(MediaPlayer1->Position, Label2);
@@ -269,4 +286,6 @@ void __fastcall TForm1::dealWithBoard()
 
 
 }
+
+
 
