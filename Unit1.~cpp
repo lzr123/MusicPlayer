@@ -71,12 +71,14 @@ AnsiString __fastcall TForm1::getSongName(AnsiString fileloc)
 
 void __fastcall TForm1::Timer1Timer(TObject *Sender)
 {
-     if (MediaPlayer1->Position != MediaPlayer1->EndPos)
+     if (MediaPlayer1->Position != MediaPlayer1->Length)
      {
         ScrollBar1->Position = MediaPlayer1->Position;
      }
-     else if(MediaPlayer1->Position >= MediaPlayer1->Length)
-		dealWithBoard();
+     else if(MediaPlayer1->Position >= MediaPlayer1->Length){
+            dealWithBoard();
+     }
+
 
      updateTimeDisplay(MediaPlayer1->Position, Label2);
 }
@@ -219,13 +221,13 @@ void __fastcall TForm1::Button4Click(TObject *Sender)
 
 void __fastcall TForm1::Button5Click(TObject *Sender)
 {
-	mode = sequencial;	
+	mode = sequencial;
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TForm1::Button6Click(TObject *Sender)
 {
-	mode = single;	
+	mode = single;
 }
 //---------------------------------------------------------------------------
 
@@ -239,12 +241,12 @@ void __fastcall TForm1::dealWithBoard()
 {
 	if(mode == sequencial)
     {
-    	MediaPlayer1->Stop();
+       //	MediaPlayer1->Stop();
     	current_song_index++;
-
+         Label3->Caption = current_song_index;
     	if (current_song_index >= song_count)
     		current_song_index = 0;
-
+        Label3->Caption = "0";
         loadMusicAndPlay(song_name_list[current_song_index]);
     	updateTimeDisplay(MediaPlayer1->Position, Label2);
     	updateTimeDisplay(MediaPlayer1->Length, Label4);
@@ -252,7 +254,7 @@ void __fastcall TForm1::dealWithBoard()
     else if(mode == single)
     {
     	MediaPlayer1->Rewind();
-        MediaPlayer1->Play());
+        MediaPlayer1->Play();
     }
     else if(mode == random)
     {
