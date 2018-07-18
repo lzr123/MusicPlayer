@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 244
-  Top = 245
+  Left = 273
+  Top = 75
   Width = 814
   Height = 467
   Caption = 'Form1'
@@ -16,8 +16,8 @@ object Form1: TForm1
   object Label1: TLabel
     Left = 280
     Top = 16
-    Width = 265
-    Height = 17
+    Width = 32
+    Height = 13
     Caption = 'Label1'
   end
   object Label2: TLabel
@@ -30,8 +30,8 @@ object Form1: TForm1
   object Label3: TLabel
     Left = 288
     Top = 40
-    Width = 249
-    Height = 265
+    Width = 32
+    Height = 13
     Caption = 'Label3'
   end
   object MediaPlayer1: TMediaPlayer
@@ -74,6 +74,7 @@ object Form1: TForm1
     Top = 384
   end
   object Timer1: TTimer
+    Enabled = False
     OnTimer = Timer1Timer
     Left = 592
     Top = 72
