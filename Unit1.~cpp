@@ -6,6 +6,8 @@
 #include "Unit1.h"
 
 #include <vector>
+#include <ctime>
+#include <cstdlib>
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -19,6 +21,7 @@ __fastcall TForm1::TForm1(TComponent* Owner)
     song_list_bottom_index = 0;
     current_song_index = 0;
     is_playing = false;
+    mode = sequencial;
 
 	Label1->Caption = "No music playing now";
     updateTimeDisplay(0, Label2);
@@ -72,19 +75,8 @@ void __fastcall TForm1::Timer1Timer(TObject *Sender)
      {
         ScrollBar1->Position = MediaPlayer1->Position;
      }
-
-     if (MediaPlayer1->Position >= MediaPlayer1->Length)
-     {
-     	MediaPlayer1->Stop();
-        current_song_index++;
-
-        if (current_song_index >= song_count)
-     		current_song_index = 0;
-
-        loadMusicAndPlay(song_name_list[current_song_index]);
-        updateTimeDisplay(MediaPlayer1->Position, Label2);
-     	updateTimeDisplay(MediaPlayer1->Length, Label4);
-     }
+     else if(MediaPlayer1->Position >= MediaPlayer1->Length)
+		dealWithBoard();
 
      updateTimeDisplay(MediaPlayer1->Position, Label2);
 }
@@ -105,19 +97,16 @@ void __fastcall TForm1::ScrollBar1Scroll(TObject *Sender,
       {
          	MediaPlayer1->Pause();
             is_playing = false;
+            Button2->Caption = "Play";
 
          	MediaPlayer1->Position = ScrollBar1->Position;
          	MediaPlayer1->Play();
             is_playing = true;
+            Button2->Caption = "Pause";
       }
       else if (ScrollBar1->Position >= MediaPlayer1->Length)
       {
-            current_song_index++;
-            if (current_song_index >= song_count)
-            	current_song_index = 0;
-            loadMusicAndPlay(song_name_list[current_song_index]);
-            updateTimeDisplay(MediaPlayer1->Position, Label2);
-            updateTimeDisplay(MediaPlayer1->Length, Label4);
+      		dealWithBoard();
       }
       else
       {
@@ -183,7 +172,7 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
     {
     	MediaPlayer1->Pause();
         is_playing = false;
-        Button2->Caption = "Pause";
+        Button2->Caption = "Play";
     }
     else
     {
@@ -191,7 +180,7 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
         {
     		MediaPlayer1->Play();
         	is_playing = true;
-            Button2->Caption = "Play";
+            Button2->Caption = "Pause";
         }
     }
 }
@@ -212,4 +201,70 @@ void __fastcall TForm1::Button3Click(TObject *Sender)
     }
 }
 //---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button4Click(TObject *Sender)
+{
+    if(song_name_list.size())
+    {
+    	current_song_index++;
+        if(current_song_index >= song_count)
+        	current_song_index = 0;
+        loadMusicAndPlay(song_name_list[current_song_index]);
+        updateTimeDisplay(MediaPlayer1->Length, Label4);
+        updateTimeDisplay(MediaPlayer1->Position, Label2);
+    }
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::Button5Click(TObject *Sender)
+{
+	mode = sequencial;	
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button6Click(TObject *Sender)
+{
+	mode = single;	
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button7Click(TObject *Sender)
+{
+	mode = random;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::dealWithBoard()
+{
+	if(mode == sequencial)
+    {
+    	MediaPlayer1->Stop();
+    	current_song_index++;
+
+    	if (current_song_index >= song_count)
+    		current_song_index = 0;
+
+        loadMusicAndPlay(song_name_list[current_song_index]);
+    	updateTimeDisplay(MediaPlayer1->Position, Label2);
+    	updateTimeDisplay(MediaPlayer1->Length, Label4);
+    }
+    else if(mode == single)
+    {
+    	MediaPlayer1->Rewind();
+        MediaPlayer1->Play());
+    }
+    else if(mode == random)
+    {
+    	srand(time(NULL));
+    	int next_song_index = std::rand()%(song_name_list.size());
+    	current_song_index = next_song_index;
+        
+        loadMusicAndPlay(song_name_list[current_song_index]);
+    	updateTimeDisplay(MediaPlayer1->Position, Label2);
+    	updateTimeDisplay(MediaPlayer1->Length, Label4);
+    }
+
+
+}
 

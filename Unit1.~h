@@ -29,6 +29,9 @@ __published:	// IDE-managed Components
 	TButton *Button2;
 	TButton *Button3;
 	TButton *Button4;
+	TButton *Button5;
+	TButton *Button6;
+	TButton *Button7;
 
 
 
@@ -42,8 +45,13 @@ __published:	// IDE-managed Components
         void __fastcall loadMusicAndPlay(AnsiString fileloc);
         void __fastcall updateTimeDisplay(int time, TLabel* label);
 		void __fastcall ListBox1DblClick(TObject *Sender);
-	void __fastcall Button2Click(TObject *Sender);
-	void __fastcall Button3Click(TObject *Sender);
+		void __fastcall Button2Click(TObject *Sender);
+		void __fastcall Button3Click(TObject *Sender);
+		void __fastcall Button4Click(TObject *Sender);
+		void __fastcall Button5Click(TObject *Sender);
+		void __fastcall Button6Click(TObject *Sender);
+		void __fastcall Button7Click(TObject *Sender);
+    	void __fastcall dealWithBoard();
 private:	// User declarations
 public:		// User declarations
 
@@ -51,6 +59,8 @@ public:		// User declarations
        int song_list_bottom_index;
        int current_song_index;
        bool is_playing;
+       int mode;
+       enum mode_type{sequencial=0, single=1, random=2};
 
        std::vector<AnsiString> song_name_list;
 
