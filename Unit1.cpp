@@ -150,6 +150,7 @@ void __fastcall TForm1::loadMusicAndPlay(AnsiString fileloc)
          ScrollBar1->Max = MediaPlayer1->Length;
          ScrollBar1->Position = 0;
 
+         Button2->Caption = "Pause";
     }
 	
 }
@@ -292,7 +293,11 @@ void __fastcall TForm1::dealWithBoard()
 
 void __fastcall TForm1::Button8Click(TObject *Sender)
 {
-	erase_activate = !erase_activate;	
+	erase_activate = !erase_activate;
+    if(erase_activate)
+    	Label5->Caption = "Click item to delate";
+    else
+    	Label5->Caption = "";
 }
 //---------------------------------------------------------------------------
 

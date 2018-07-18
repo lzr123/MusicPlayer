@@ -292,7 +292,11 @@ void __fastcall TForm1::dealWithBoard()
 
 void __fastcall TForm1::Button8Click(TObject *Sender)
 {
-	erase_activate = !erase_activate;	
+	erase_activate = !erase_activate;
+    if(erase_activate)
+    	Label5->Caption = "Click item to delate";
+    else
+    	Label5->Caption = "";
 }
 //---------------------------------------------------------------------------
 
@@ -325,7 +329,7 @@ void __fastcall TForm1::ListBox1Click(TObject *Sender)
         {
         	current_song_index = 0;
             MediaPlayer1->Stop();
-            loadMusicAndPlay("");
+            MediaPlayer1->FileName = "";
             updateTimeDisplay(0, Label2);
             updateTimeDisplay(0, Label4);
             Label1->Caption = "No music playing now";

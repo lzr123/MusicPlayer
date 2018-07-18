@@ -1,8 +1,8 @@
 object Form1: TForm1
-  Left = 340
-  Top = 54
-  Width = 910
-  Height = 480
+  Left = 171
+  Top = 124
+  Width = 681
+  Height = 455
   AlphaBlend = True
   AlphaBlendValue = 220
   Caption = 'Form1'
@@ -43,6 +43,13 @@ object Form1: TForm1
     Width = 41
     Height = 13
     Caption = 'Label4'
+  end
+  object Label5: TLabel
+    Left = 0
+    Top = 0
+    Width = 177
+    Height = 21
+    Caption = 'Label5'
   end
   object MediaPlayer1: TMediaPlayer
     Left = 296
@@ -146,13 +153,13 @@ object Form1: TForm1
   end
   object OpenDialog1: TOpenDialog
     Options = [ofHideReadOnly, ofAllowMultiSelect, ofEnableSizing]
-    Left = 304
-    Top = 384
+    Left = 296
+    Top = 344
   end
   object Timer1: TTimer
     Enabled = False
     OnTimer = Timer1Timer
-    Left = 696
-    Top = 32
+    Left = 627
+    Top = 22
   end
 end

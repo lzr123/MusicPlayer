@@ -33,6 +33,7 @@ __published:	// IDE-managed Components
 	TButton *Button6;
 	TButton *Button7;
 	TButton *Button8;
+	TLabel *Label5;
 
 
 
