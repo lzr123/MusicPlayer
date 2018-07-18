@@ -25,6 +25,7 @@ __published:	// IDE-managed Components
         TScrollBar *ScrollBar1;
         TListBox *ListBox1;
         TLabel *Label3;
+	TLabel *Label4;
 
 
 
@@ -36,11 +37,15 @@ __published:	// IDE-managed Components
           TScrollCode ScrollCode, int &ScrollPos);
         void __fastcall ScrollBar1Enter(TObject *Sender);
         void __fastcall loadMusicAndPlay(AnsiString fileloc);
+        void __fastcall updateTimeDisplay(int time, TLabel* label);
+		void __fastcall ListBox1DblClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 
        int song_count;
-       
+       int song_list_bottom_index;
+       int current_song_index;
+
        std::vector<AnsiString> song_name_list;
 
         __fastcall TForm1(TComponent* Owner);
@@ -48,5 +53,5 @@ public:		// User declarations
 //---------------------------------------------------------------------------
 extern PACKAGE TForm1 *Form1;
 //---------------------------------------------------------------------------
-static int current_song_index = 0;
+
 #endif
