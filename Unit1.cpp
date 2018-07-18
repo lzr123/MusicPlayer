@@ -18,7 +18,9 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 	song_count = 0;
     song_list_bottom_index = 0;
     current_song_index = 0;
+    is_playing = false;
 
+	Label1->Caption = "No music playing now";
     updateTimeDisplay(0, Label2);
     updateTimeDisplay(0, Label4);
 }
@@ -102,8 +104,11 @@ void __fastcall TForm1::ScrollBar1Scroll(TObject *Sender,
       if (MediaPlayer1->FileName != "")
       {
          	MediaPlayer1->Pause();
+            is_playing = false;
+
          	MediaPlayer1->Position = ScrollBar1->Position;
          	MediaPlayer1->Play();
+            is_playing = true;
       }
       else if (ScrollBar1->Position >= MediaPlayer1->Length)
       {
@@ -140,6 +145,7 @@ void __fastcall TForm1::loadMusicAndPlay(AnsiString fileloc)
          
          Label1->Caption = "Now playing: " + getSongName(MediaPlayer1->FileName);
     	 MediaPlayer1->Play();
+         is_playing = true;
 
          ScrollBar1->Min = 0;
          ScrollBar1->Max = MediaPlayer1->Length;
@@ -153,6 +159,8 @@ void __fastcall TForm1::ListBox1DblClick(TObject *Sender)
 {
 	current_song_index = ListBox1->ItemIndex;
     MediaPlayer1->Stop();
+    is_playing = false;
+
     loadMusicAndPlay(song_name_list[current_song_index]);
     updateTimeDisplay(MediaPlayer1->Position, Label2);
     updateTimeDisplay(MediaPlayer1->Length, Label4);
@@ -166,6 +174,56 @@ void __fastcall TForm1::updateTimeDisplay(int time, TLabel* label)
        int hour = minute / 60;
 
        label->Caption = AnsiString(hour) + ":" + AnsiString(minute % 60) + ":" + AnsiString(second % 60);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button2Click(TObject *Sender)
+{
+	if(is_playing == true)
+    {
+    	MediaPlayer1->Pause();
+        is_playing = false;
+        Button2->Caption = "Pause";
+    }
+    else
+    {
+    	if(MediaPlayer1->FileName != "")
+        {
+    		MediaPlayer1->Play();
+        	is_playing = true;
+            Button2->Caption = "Play";
+        }
+    }
+}
+//---------------------------------------------------------------------------
+
+
+
+void __fastcall TForm1::Button3Click(TObject *Sender)
+{
+	if(song_name_list.size())
+    {
+    	current_song_index--;
+        if(current_song_index < 0)
+        	current_song_index = song_count-1;
+        loadMusicAndPlay(song_name_list[current_song_index]);
+        updateTimeDisplay(MediaPlayer1->Length, Label4);
+        updateTimeDisplay(MediaPlayer1->Position, Label2);
+    }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button4Click(TObject *Sender)
+{
+    if(song_name_list.size())
+    {
+    	current_song_index++;
+        if(current_song_index >= song_count)
+        	current_song_index = 0;
+        loadMusicAndPlay(song_name_list[current_song_index]);
+        updateTimeDisplay(MediaPlayer1->Length, Label4);
+        updateTimeDisplay(MediaPlayer1->Position, Label2);
+    }
 }
 //---------------------------------------------------------------------------
 

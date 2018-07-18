@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 287
-  Top = 147
+  Left = 206
+  Top = 169
   Width = 814
   Height = 467
   Caption = 'Form1'
@@ -49,9 +49,9 @@ object Form1: TForm1
     TabOrder = 0
   end
   object Button1: TButton
-    Left = 328
+    Left = 496
     Top = 360
-    Width = 75
+    Width = 89
     Height = 25
     Caption = 'Select'
     TabOrder = 1
@@ -75,6 +75,33 @@ object Form1: TForm1
     ItemHeight = 13
     TabOrder = 3
     OnDblClick = ListBox1DblClick
+  end
+  object Button2: TButton
+    Left = 328
+    Top = 360
+    Width = 57
+    Height = 25
+    Caption = 'Play'
+    TabOrder = 4
+    OnClick = Button2Click
+  end
+  object Button3: TButton
+    Left = 384
+    Top = 360
+    Width = 57
+    Height = 25
+    Caption = 'Prev'
+    TabOrder = 5
+    OnClick = Button3Click
+  end
+  object Button4: TButton
+    Left = 440
+    Top = 360
+    Width = 57
+    Height = 25
+    Caption = 'Next'
+    TabOrder = 6
+    OnClick = Button4Click
   end
   object OpenDialog1: TOpenDialog
     Options = [ofHideReadOnly, ofAllowMultiSelect, ofEnableSizing]
