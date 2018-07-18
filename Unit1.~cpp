@@ -25,11 +25,12 @@ __fastcall TForm1::TForm1(TComponent* Owner)
     mode = sequencial;
 
 	Label1->Caption = "No music playing now";
+    SpeedButton4->Glyph->LoadFromFile("D:\\KM\\delete_icon.bmp");
     updateTimeDisplay(0, Label2);
     updateTimeDisplay(0, Label4);
 }
 //---------------------------------------------------------------------------
-
+/*
 void __fastcall TForm1::Button1Click(TObject *Sender)
 {
         Timer1->Enabled = false;
@@ -64,6 +65,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
                 updateTimeDisplay(MediaPlayer1->Length, Label4);
         }
 }
+*/
 //---------------------------------------------------------------------------
 
 
@@ -107,12 +109,14 @@ void __fastcall TForm1::ScrollBar1Scroll(TObject *Sender,
       {
          	MediaPlayer1->Pause();
             is_playing = false;
-            Button2->Caption = "Play";
+            //Button2->Caption = "Play";
+            SpeedButton1->Glyph->LoadFromFile("D:\\KM\\play_icon.bmp");
 
          	MediaPlayer1->Position = ScrollBar1->Position;
          	MediaPlayer1->Play();
             is_playing = true;
-            Button2->Caption = "Pause";
+            //Button2->Caption = "Pause";
+            SpeedButton1->Glyph->LoadFromFile("D:\\KM\\play_icon.bmp");
       }
       else if (ScrollBar1->Position >= MediaPlayer1->Length)
       {
@@ -150,6 +154,9 @@ void __fastcall TForm1::loadMusicAndPlay(AnsiString fileloc)
          ScrollBar1->Max = MediaPlayer1->Length;
          ScrollBar1->Position = 0;
 
+         //Button2->Caption = "Pause";
+
+         SpeedButton1->Glyph->LoadFromFile("D:\\KM\\pause_icon.bmp");
     }
 	
 }
@@ -176,7 +183,8 @@ void __fastcall TForm1::updateTimeDisplay(int time, TLabel* label)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm1::Button2Click(TObject *Sender)
+/*
+void __fastcall TForm1::Button2Click(TObject *Sender) //play button
 {
 	if(is_playing == true)
     {
@@ -194,10 +202,14 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
         }
     }
 }
+
+*/
 //---------------------------------------------------------------------------
 
 
 //Prev song button click event call back function
+
+/*
 void __fastcall TForm1::Button3Click(TObject *Sender)
 {
 	if(song_name_list.size())
@@ -213,10 +225,12 @@ void __fastcall TForm1::Button3Click(TObject *Sender)
         updateTimeDisplay(MediaPlayer1->Position, Label2);
     }
 }
+*/
 //---------------------------------------------------------------------------
 
 
 //Next song button click event call back function
+/*
 void __fastcall TForm1::Button4Click(TObject *Sender)
 {
     if(song_name_list.size())
@@ -225,13 +239,15 @@ void __fastcall TForm1::Button4Click(TObject *Sender)
         if(current_song_index >= song_count)
         {
         	current_song_index = 0;
-            ListBox1->ItemIndex = current_song_index;
+
         }
+        ListBox1->ItemIndex = current_song_index;
         loadMusicAndPlay(song_name_list[current_song_index]);
         updateTimeDisplay(MediaPlayer1->Length, Label4);
         updateTimeDisplay(MediaPlayer1->Position, Label2);
     }
 }
+*/
 //---------------------------------------------------------------------------
 
 
@@ -247,7 +263,7 @@ void __fastcall TForm1::Button6Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm1::Button7Click(TObject *Sender)
+void __fastcall TForm1::Button7Click(TObject *Sender)  //random mode button
 {
 	mode = random;
 }
@@ -335,6 +351,142 @@ void __fastcall TForm1::ListBox1Click(TObject *Sender)
             Label1->Caption = "No music playing now";
         }
     }
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::SpeedButton1Click(TObject *Sender)
+{
+	if(is_playing == true)
+    {
+    	MediaPlayer1->Pause();
+        is_playing = false;
+        SpeedButton1->Glyph->LoadFromFile("D:\\KM\\play_icon.bmp");
+    }
+    else
+    {
+    	if(MediaPlayer1->FileName != "")
+        {
+    		MediaPlayer1->Play();
+        	is_playing = true;
+            SpeedButton1->Glyph->LoadFromFile("D:\\KM\\pause_icon.bmp");
+        }
+    }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::SpeedButton3Click(TObject *Sender)
+{
+	if(song_name_list.size())
+    {
+    	current_song_index--;
+        if(current_song_index < 0)
+        {
+        	current_song_index = song_count-1;
+
+        }
+        ListBox1->ItemIndex = current_song_index;
+        loadMusicAndPlay(song_name_list[current_song_index]);
+        updateTimeDisplay(MediaPlayer1->Length, Label4);
+        updateTimeDisplay(MediaPlayer1->Position, Label2);
+    }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::SpeedButton2Click(TObject *Sender)
+{
+	if(song_name_list.size())
+    {
+    	current_song_index++;
+        if(current_song_index >= song_count)
+        {
+        	current_song_index = 0;
+
+        }
+        ListBox1->ItemIndex = current_song_index;
+        loadMusicAndPlay(song_name_list[current_song_index]);
+        updateTimeDisplay(MediaPlayer1->Length, Label4);
+        updateTimeDisplay(MediaPlayer1->Position, Label2);
+    }	
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::SpeedButton4Click(TObject *Sender)
+{
+    erase_activate = !erase_activate;
+    if(erase_activate)
+    {
+    	Label5->Caption = "Click item to delate";
+        SpeedButton4->Glyph->LoadFromFile("D:\\KM\\delete_act_icon.bmp");
+    }
+    else
+    {
+    	Label5->Caption = "";
+        SpeedButton4->Glyph->LoadFromFile("D:\\KM\\delete_icon.bmp");
+    }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::SpeedButton5Click(TObject *Sender)
+{
+	 Timer1->Enabled = false;
+
+        if(OpenDialog1->Execute())
+        {
+                Timer1->Enabled = true;
+
+                for(int i = 0; i < OpenDialog1->Files->Count; i++)
+                {
+                	std::vector<AnsiString>::iterator iter;
+                    iter = std::find(song_name_list.begin(), song_name_list.end(), OpenDialog1->Files->Strings[i]);
+                    if(iter == song_name_list.end())
+                    {
+                        song_name_list.push_back(OpenDialog1->Files->Strings[i]);
+                        ListBox1->Items->Add(getSongName(OpenDialog1->Files->Strings[i]));
+                        song_count++;
+                    }
+                	
+                }
+
+                for(int i = song_list_bottom_index; i < (song_count) + song_list_bottom_index; i++)
+                {
+
+
+                }
+                song_list_bottom_index = song_name_list.size();
+
+                ListBox1->ItemIndex = current_song_index;
+                loadMusicAndPlay(song_name_list[current_song_index]);
+                updateTimeDisplay(MediaPlayer1->Position, Label2);
+                updateTimeDisplay(MediaPlayer1->Length, Label4);
+        }	
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::SpeedButton6Click(TObject *Sender)
+{
+	mode = sequencial;
+    SpeedButton6->Glyph->LoadFromFile("D:\\KM\\seq_play_act_icon.bmp");
+    SpeedButton7->Glyph->LoadFromFile("D:\\KM\\single_play_icon.bmp");
+    SpeedButton8->Glyph->LoadFromFile("D:\\KM\\random_play_icon.bmp");
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::SpeedButton7Click(TObject *Sender)
+{
+ 	mode = single;
+    SpeedButton6->Glyph->LoadFromFile("D:\\KM\\seq_play_icon.bmp");
+    SpeedButton7->Glyph->LoadFromFile("D:\\KM\\single_play_act_icon.bmp");
+    SpeedButton8->Glyph->LoadFromFile("D:\\KM\\random_play_icon.bmp");
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::SpeedButton8Click(TObject *Sender)
+{
+	mode = random;
+    SpeedButton6->Glyph->LoadFromFile("D:\\KM\\seq_play_icon.bmp");
+    SpeedButton7->Glyph->LoadFromFile("D:\\KM\\single_play_icon.bmp");
+    SpeedButton8->Glyph->LoadFromFile("D:\\KM\\random_play_act_icon.bmp");
 }
 //---------------------------------------------------------------------------
 

@@ -11,13 +11,13 @@
 #include <MPlayer.hpp>
 #include <ComCtrls.hpp>
 #include <ExtCtrls.hpp>
+#include <Buttons.hpp>
 #include <vector>
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
 __published:	// IDE-managed Components
         TMediaPlayer *MediaPlayer1;
-        TButton *Button1;
         TOpenDialog *OpenDialog1;
         TLabel *Label1;
         TTimer *Timer1;
@@ -26,19 +26,21 @@ __published:	// IDE-managed Components
         TListBox *ListBox1;
         TLabel *Label3;
 	TLabel *Label4;
-	TButton *Button2;
-	TButton *Button3;
-	TButton *Button4;
-	TButton *Button5;
-	TButton *Button6;
-	TButton *Button7;
-	TButton *Button8;
 	TLabel *Label5;
+	TTimer *Timer2;
+	TSpeedButton *SpeedButton1;
+	TSpeedButton *SpeedButton2;
+	TSpeedButton *SpeedButton3;
+	TSpeedButton *SpeedButton4;
+	TSpeedButton *SpeedButton5;
+	TSpeedButton *SpeedButton6;
+	TSpeedButton *SpeedButton7;
+	TSpeedButton *SpeedButton8;
 
 
 
 
-        void __fastcall Button1Click(TObject *Sender);
+        //void __fastcall Button1Click(TObject *Sender);
         AnsiString __fastcall getSongName(AnsiString fileloc);
         void __fastcall Timer1Timer(TObject *Sender);
         void __fastcall ScrollBar1Scroll(TObject *Sender,
@@ -47,15 +49,23 @@ __published:	// IDE-managed Components
         void __fastcall loadMusicAndPlay(AnsiString fileloc);
         void __fastcall updateTimeDisplay(int time, TLabel* label);
 		void __fastcall ListBox1DblClick(TObject *Sender);
-		void __fastcall Button2Click(TObject *Sender);
-		void __fastcall Button3Click(TObject *Sender);
-		void __fastcall Button4Click(TObject *Sender);
+		//void __fastcall Button2Click(TObject *Sender);
+		//void __fastcall Button3Click(TObject *Sender);
+		//void __fastcall Button4Click(TObject *Sender);
 		void __fastcall Button5Click(TObject *Sender);
 		void __fastcall Button6Click(TObject *Sender);
 		void __fastcall Button7Click(TObject *Sender);
     	void __fastcall dealWithBoard();
 	void __fastcall Button8Click(TObject *Sender);
 	void __fastcall ListBox1Click(TObject *Sender);
+	void __fastcall SpeedButton1Click(TObject *Sender);
+	void __fastcall SpeedButton3Click(TObject *Sender);
+	void __fastcall SpeedButton2Click(TObject *Sender);
+	void __fastcall SpeedButton4Click(TObject *Sender);
+	void __fastcall SpeedButton5Click(TObject *Sender);
+	void __fastcall SpeedButton6Click(TObject *Sender);
+	void __fastcall SpeedButton7Click(TObject *Sender);
+	void __fastcall SpeedButton8Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 
