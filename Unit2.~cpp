@@ -1,0 +1,56 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Unit2.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm2 *Form2;
+//---------------------------------------------------------------------------
+__fastcall TForm2::TForm2(TComponent* Owner)
+	: TForm(Owner)
+{
+	Form2->SpeedButton4->Glyph->LoadFromFile("D:\\KM\\delete_icon.bmp");
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::ListBox1Click(TObject *Sender)
+{
+	if(erase_activate)
+    {
+    	int pos = Form2->ListBox1->ItemIndex;
+        song_name_list.erase(song_name_list.begin() + pos);
+        Form2->ListBox1->DeleteSelected();
+        song_count = song_name_list.size();
+
+        if(song_name_list.size() != 0)
+        {
+        	if(current_song_index >= song_name_list.size())
+            {
+            	current_song_index = song_name_list.size()-1;
+                loadMusicAndPlay(song_name_list[current_song_index]);
+                updateTimeDisplay(MediaPlayer1->Position, Label2);
+                updateTimeDisplay(MediaPlayer1->Length, Label4);
+            }
+            else
+            {
+            	loadMusicAndPlay(song_name_list[current_song_index]);
+                updateTimeDisplay(MediaPlayer1->Position, Label2);
+                updateTimeDisplay(MediaPlayer1->Length, Label4);
+            }
+        }
+        else
+        {
+        	current_song_index = 0;
+            MediaPlayer1->Stop();
+            MediaPlayer1->FileName = "";
+            updateTimeDisplay(0, Label2);
+            updateTimeDisplay(0, Label4);
+            Label1->Caption = "No music playing now";
+        }
+    }
+}
+
+ 
