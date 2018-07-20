@@ -42,15 +42,14 @@ __fastcall TForm1::TForm1(TComponent* Owner)
     SpeedButton6->Glyph->LoadFromFile("D:\\KM\\icons\\seq_play_act_icon.bmp");
     updateTimeDisplay(0, Label2);
     updateTimeDisplay(0, Label4);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+//<<<<<<< HEAD
+//<<<<<<< HEAD
+//<<<<<<< HEAD
 
     getSystemVolume();
-    Label6->Caption = AnsiString(current_volume);
-
+    //Label6->Caption = AnsiString(current_volume);
+    /*
     lyric_displayer_array = new TLabel* [7];
-<<<<<<< HEAD
     lyric_displayer_array[0] = Label3;
     lyric_displayer_array[1] = Label7;
     lyric_displayer_array[2] = Label8;
@@ -58,9 +57,13 @@ __fastcall TForm1::TForm1(TComponent* Owner)
     lyric_displayer_array[4] = Label10;
     lyric_displayer_array[5] = Label11;
     lyric_displayer_array[6] = Label12;
+    */
+//<<<<<<< HEAD
 
-    loadLyric((apploc + "\\lyrics\\stan.lrc").c_str());
-    showLyric();
+    //loadLyric((apploc + "\\lyrics\\stan.lrc").c_str());
+    //showLyric();
+}
+/*
 =======
 >>>>>>> parent of 08513db... commit 720 1439
 =======
@@ -69,7 +72,8 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 >>>>>>> parent of 08513db... commit 720 1439
 =======
 >>>>>>> parent of 08513db... commit 720 1439
-}
+*/
+
 //---------------------------------------------------------------------------
 /*
 void __fastcall TForm1::Button1Click(TObject *Sender)
