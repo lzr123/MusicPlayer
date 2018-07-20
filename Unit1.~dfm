@@ -1,12 +1,12 @@
 object Form1: TForm1
-  Left = 156
-  Top = 135
+  Left = 169
+  Top = 283
   HorzScrollBar.Smooth = True
   HorzScrollBar.Style = ssFlat
   AlphaBlend = True
   BorderStyle = bsSingle
   Caption = 'Form1'
-  ClientHeight = 586
+  ClientHeight = 587
   ClientWidth = 868
   Color = clBtnFace
   TransparentColor = True
@@ -232,8 +232,8 @@ object Form1: TForm1
   object Label1: TLabel
     Left = 360
     Top = 16
-    Width = 209
-    Height = 25
+    Width = 40
+    Height = 19
     Caption = 'Label1'
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
@@ -252,8 +252,8 @@ object Form1: TForm1
   object Label3: TLabel
     Left = 352
     Top = 72
-    Width = 401
-    Height = 25
+    Width = 32
+    Height = 13
     Caption = 'Label3'
   end
   object Label4: TLabel
@@ -1080,8 +1080,8 @@ object Form1: TForm1
     OnClick = SpeedButton6Click
   end
   object SpeedButton7: TSpeedButton
-    Left = 768
-    Top = 64
+    Left = 848
+    Top = 528
     Width = 33
     Height = 33
     Flat = True
@@ -1421,43 +1421,43 @@ object Form1: TForm1
   object Label7: TLabel
     Left = 352
     Top = 120
-    Width = 401
-    Height = 25
+    Width = 32
+    Height = 13
     Caption = 'Label7'
   end
   object Label8: TLabel
     Left = 352
     Top = 168
-    Width = 401
-    Height = 25
+    Width = 32
+    Height = 13
     Caption = 'Label8'
   end
   object Label9: TLabel
     Left = 352
     Top = 216
-    Width = 401
-    Height = 25
+    Width = 32
+    Height = 13
     Caption = 'Label9'
   end
   object Label10: TLabel
     Left = 352
     Top = 264
-    Width = 401
-    Height = 25
+    Width = 38
+    Height = 13
     Caption = 'Label10'
   end
   object Label11: TLabel
     Left = 352
     Top = 312
-    Width = 409
-    Height = 25
+    Width = 38
+    Height = 13
     Caption = 'Label11'
   end
   object Label12: TLabel
     Left = 352
     Top = 360
-    Width = 409
-    Height = 25
+    Width = 38
+    Height = 13
     Caption = 'Label12'
   end
   object MediaPlayer1: TMediaPlayer
@@ -1487,7 +1487,7 @@ object Form1: TForm1
   end
   object OpenDialog1: TOpenDialog
     Options = [ofHideReadOnly, ofAllowMultiSelect, ofEnableSizing]
-    Left = 800
+    Left = 808
     Top = 96
   end
   object Timer1: TTimer
