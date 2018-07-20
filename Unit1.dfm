@@ -1,6 +1,7 @@
 object Form1: TForm1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   Left = 169
   Top = 283
 =======
@@ -11,6 +12,10 @@ object Form1: TForm1
   Left = 156
   Top = 135
 >>>>>>> parent of 929c27a... commit 720 1625
+=======
+  Left = 152
+  Top = 58
+>>>>>>> parent of 08513db... commit 720 1439
   HorzScrollBar.Smooth = True
   HorzScrollBar.Style = ssFlat
   AlphaBlend = True
@@ -21,10 +26,14 @@ object Form1: TForm1
   ClientHeight = 587
 =======
   ClientHeight = 586
+<<<<<<< HEAD
 >>>>>>> parent of 929c27a... commit 720 1625
   ClientWidth = 868
 =======
   ClientHeight = 586
+  ClientWidth = 832
+>>>>>>> parent of 08513db... commit 720 1439
+=======
   ClientWidth = 832
 >>>>>>> parent of 08513db... commit 720 1439
   Color = clBtnFace
@@ -250,6 +259,7 @@ object Form1: TForm1
   end
   object Label1: TLabel
 <<<<<<< HEAD
+<<<<<<< HEAD
     Left = 360
     Top = 16
 <<<<<<< HEAD
@@ -263,6 +273,12 @@ object Form1: TForm1
     Width = 209
     Height = 25
 >>>>>>> parent of 929c27a... commit 720 1625
+=======
+    Left = 368
+    Top = 8
+    Width = 40
+    Height = 19
+>>>>>>> parent of 08513db... commit 720 1439
     Caption = 'Label1'
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
@@ -280,21 +296,27 @@ object Form1: TForm1
   end
   object Label3: TLabel
 <<<<<<< HEAD
+<<<<<<< HEAD
     Left = 352
     Top = 72
 <<<<<<< HEAD
     Width = 32
     Height = 13
 =======
+=======
+>>>>>>> parent of 08513db... commit 720 1439
     Left = 368
     Top = 32
     Width = 393
     Height = 393
+<<<<<<< HEAD
 >>>>>>> parent of 08513db... commit 720 1439
 =======
     Width = 401
     Height = 25
 >>>>>>> parent of 929c27a... commit 720 1625
+=======
+>>>>>>> parent of 08513db... commit 720 1439
     Caption = 'Label3'
   end
   object Label4: TLabel
@@ -1320,6 +1342,7 @@ object Form1: TForm1
       FF00FFFFFF00EBC56B00EDCA7900FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
 <<<<<<< HEAD
+<<<<<<< HEAD
       FF00FFFFFF00FFFFFF00F0D28D00F0D59400FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FAEFD700E5B4
       3F00E2AB2900F0D59400FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
@@ -1394,6 +1417,10 @@ object Form1: TForm1
     Width = 409
     Height = 25
     Caption = 'Label12'
+=======
+      FF00FFFFFF00FFFFFF00FFFFFF00FAEFD700FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00}
+>>>>>>> parent of 08513db... commit 720 1439
 =======
       FF00FFFFFF00FFFFFF00FFFFFF00FAEFD700FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00}

@@ -80,6 +80,7 @@ __published:	// IDE-managed Components
 
         void __fastcall changeCrusorPos(int pos);
 <<<<<<< HEAD
+<<<<<<< HEAD
         void __fastcall getSystemVolume();
 		//void __fastcall TrackBar1Change(TObject *Sender);
 		void __fastcall SpeedButton9Click(TObject *Sender);
@@ -93,6 +94,8 @@ __published:	// IDE-managed Components
       	void __fastcall setVolTrackbarPos(int vol);
 
 
+=======
+>>>>>>> parent of 08513db... commit 720 1439
 =======
 >>>>>>> parent of 08513db... commit 720 1439
 	//void __fastcall Button1Click(TObject *Sender);
@@ -119,6 +122,7 @@ public:		// User declarations
        bool scrollbar_enabled;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
        int volu_trackbar_min_pos;
        int volu_trackbar_max_pos;
        int volu_trackbar_max_value;
@@ -137,6 +141,8 @@ public:		// User declarations
 
 
 
+=======
+>>>>>>> parent of 08513db... commit 720 1439
 =======
 >>>>>>> parent of 08513db... commit 720 1439
        std::vector<AnsiString> song_name_list;
