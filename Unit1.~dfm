@@ -1,13 +1,23 @@
 object Form1: TForm1
+<<<<<<< HEAD
   Left = 169
   Top = 283
+=======
+  Left = 114
+  Top = 109
+>>>>>>> parent of 08513db... commit 720 1439
   HorzScrollBar.Smooth = True
   HorzScrollBar.Style = ssFlat
   AlphaBlend = True
   BorderStyle = bsSingle
   Caption = 'Form1'
+<<<<<<< HEAD
   ClientHeight = 587
   ClientWidth = 868
+=======
+  ClientHeight = 586
+  ClientWidth = 833
+>>>>>>> parent of 08513db... commit 720 1439
   Color = clBtnFace
   TransparentColor = True
   TransparentColorValue = clOlive
@@ -230,8 +240,13 @@ object Form1: TForm1
       AE00}
   end
   object Label1: TLabel
+<<<<<<< HEAD
     Left = 360
     Top = 16
+=======
+    Left = 368
+    Top = 8
+>>>>>>> parent of 08513db... commit 720 1439
     Width = 40
     Height = 19
     Caption = 'Label1'
@@ -243,22 +258,29 @@ object Form1: TForm1
     ParentFont = False
   end
   object Label2: TLabel
-    Left = 792
+    Left = 776
     Top = 456
     Width = 32
     Height = 13
     Caption = 'Label2'
   end
   object Label3: TLabel
+<<<<<<< HEAD
     Left = 352
     Top = 72
     Width = 32
     Height = 13
+=======
+    Left = 368
+    Top = 32
+    Width = 393
+    Height = 393
+>>>>>>> parent of 08513db... commit 720 1439
     Caption = 'Label3'
   end
   object Label4: TLabel
-    Left = 328
-    Top = 448
+    Left = 320
+    Top = 456
     Width = 32
     Height = 13
     Caption = 'Label4'
@@ -1226,6 +1248,7 @@ object Form1: TForm1
     OnMouseMove = Image1MouseMove
     OnMouseUp = Image1MouseUp
   end
+<<<<<<< HEAD
   object Label6: TLabel
     Left = 800
     Top = 432
@@ -1460,6 +1483,8 @@ object Form1: TForm1
     Height = 13
     Caption = 'Label12'
   end
+=======
+>>>>>>> parent of 08513db... commit 720 1439
   object MediaPlayer1: TMediaPlayer
     Left = 792
     Top = 168
