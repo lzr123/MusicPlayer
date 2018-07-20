@@ -50,6 +50,7 @@ __fastcall TForm1::TForm1(TComponent* Owner)
     //Label6->Caption = AnsiString(current_volume);
     /*
     lyric_displayer_array = new TLabel* [7];
+<<<<<<< HEAD
     lyric_displayer_array[0] = Label3;
     lyric_displayer_array[1] = Label7;
     lyric_displayer_array[2] = Label8;
@@ -62,6 +63,8 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 
     //loadLyric((apploc + "\\lyrics\\stan.lrc").c_str());
     //showLyric();
+=======
+>>>>>>> parent of 929c27a... commit 720 1625
 }
 /*
 =======

@@ -3,6 +3,7 @@ object Form1: TForm1
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   Left = 169
   Top = 283
 =======
@@ -21,6 +22,10 @@ object Form1: TForm1
   Left = 152
   Top = 58
 >>>>>>> parent of 08513db... commit 720 1439
+=======
+  Left = 156
+  Top = 135
+>>>>>>> parent of 929c27a... commit 720 1625
   HorzScrollBar.Smooth = True
   HorzScrollBar.Style = ssFlat
   AlphaBlend = True
@@ -28,11 +33,15 @@ object Form1: TForm1
   Caption = 'Form1'
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   ClientHeight = 587
 =======
   ClientHeight = 586
 <<<<<<< HEAD
 <<<<<<< HEAD
+>>>>>>> parent of 929c27a... commit 720 1625
+=======
+  ClientHeight = 586
 >>>>>>> parent of 929c27a... commit 720 1625
   ClientWidth = 868
 =======
@@ -273,6 +282,7 @@ object Form1: TForm1
     Left = 360
     Top = 16
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     Left = 368
     Top = 8
@@ -295,6 +305,10 @@ object Form1: TForm1
     Width = 40
     Height = 19
 >>>>>>> parent of 08513db... commit 720 1439
+=======
+    Width = 209
+    Height = 25
+>>>>>>> parent of 929c27a... commit 720 1625
     Caption = 'Label1'
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
@@ -316,6 +330,7 @@ object Form1: TForm1
 <<<<<<< HEAD
     Left = 352
     Top = 72
+<<<<<<< HEAD
 <<<<<<< HEAD
     Width = 32
     Height = 13
@@ -339,6 +354,10 @@ object Form1: TForm1
 >>>>>>> parent of 08513db... commit 720 1439
 =======
 >>>>>>> parent of 08513db... commit 720 1439
+=======
+    Width = 401
+    Height = 25
+>>>>>>> parent of 929c27a... commit 720 1625
     Caption = 'Label3'
   end
   object Label4: TLabel

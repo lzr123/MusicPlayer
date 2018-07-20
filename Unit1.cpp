@@ -57,11 +57,14 @@ __fastcall TForm1::TForm1(TComponent* Owner)
     lyric_displayer_array[4] = Label10;
     lyric_displayer_array[5] = Label11;
     lyric_displayer_array[6] = Label12;
+<<<<<<< HEAD
     */
 //<<<<<<< HEAD
 
     //loadLyric((apploc + "\\lyrics\\stan.lrc").c_str());
     //showLyric();
+=======
+>>>>>>> parent of 929c27a... commit 720 1625
 }
 /*
 =======
@@ -588,3 +591,82 @@ void __fastcall TForm1::Image1MouseUp(TObject *Sender, TMouseButton Button,
 
 
 
+<<<<<<< HEAD
+=======
+void __fastcall TForm1::SpeedButton9Click(TObject *Sender)
+{
+	if(is_muted == false)
+    {
+    	is_muted = true;
+    	waveOutSetVolume(0, 0x0);
+        Label6->Caption = "0";
+    	SpeedButton9->Glyph->LoadFromFile(apploc + "icons\\mute_icon.bmp");
+        setVolTrackbarPos(0);
+    }
+    else
+    {
+    	waveOutSetVolume(0, current_volume * (0xffff / 10.0));
+        //TrackBar1->Position = current_volume;
+        setVolTrackbarPos(current_volume);
+        is_muted = false;
+        Label6->Caption = AnsiString(current_volume);
+    	SpeedButton9->Glyph->LoadFromFile(apploc + "icons\\volu_icon.bmp");
+    }
+}
+//---------------------------------------------------------------------------
+
+
+
+void __fastcall TForm1::Image4MouseDown(TObject *Sender,
+      TMouseButton Button, TShiftState Shift, int X, int Y)
+{
+	mouse_key_down = true;
+    mouse_x = X;
+    mouse_y = Y;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image4MouseUp(TObject *Sender, TMouseButton Button,
+      TShiftState Shift, int X, int Y)
+{
+	mouse_key_down = false;
+    mouse_x = X;
+    mouse_y = Y;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image4MouseMove(TObject *Sender, TShiftState Shift,
+      int X, int Y)
+{
+	int desired_pos = Image4->Top - (mouse_y - Y);
+	if ((desired_pos >= volu_trackbar_min_pos) && (desired_pos < volu_trackbar_max_pos))
+	{
+		if(mouse_key_down == true)
+        {
+			Image4->Top = desired_pos;
+            int volume =  (volu_trackbar_max_pos - Image4->Top) * (volu_trackbar_max_value / static_cast<double>(volu_trackbar_length));
+            waveOutSetVolume(0, volume * (0xffff / static_cast<double>(volu_trackbar_max_value)));
+            current_volume = volume;
+            Label6->Caption = AnsiString(volume);
+            if(volume == 0)
+            	SpeedButton9->Glyph->LoadFromFile(apploc + "\\icons\\mute_icon.bmp");
+            else
+            	SpeedButton9->Glyph->LoadFromFile(apploc + "\\icons\\volu_icon.bmp");
+
+		}
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::setVolTrackbarPos(int vol)
+{
+	if((vol >= 0)&&(vol <= volu_trackbar_max_value))
+    {
+    	int desired_pos = volu_trackbar_max_pos -
+        				vol * (volu_trackbar_length / static_cast<double>(volu_trackbar_max_value));
+        Image4->Top = desired_pos;
+    }
+}
+
+
+>>>>>>> parent of 929c27a... commit 720 1625
