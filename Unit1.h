@@ -14,7 +14,6 @@
 #include <Buttons.hpp>
 #include <Graphics.hpp>
 #include <vector>
-#include <string>
 //---------------------------------------------------------------------------
 
 
@@ -93,10 +92,6 @@ __published:	// IDE-managed Components
 
       	void __fastcall setVolTrackbarPos(int vol);
 
-        void __fastcall loadLyric(std::string fileloc);
-
-        void __fastcall showLyric();
-
 
 =======
 >>>>>>> parent of 08513db... commit 720 1439
@@ -130,7 +125,7 @@ public:		// User declarations
        int volu_trackbar_min_value;
        int volu_trackbar_length;
 
-       int lyric_focus;
+
 
        int current_volume;
        bool is_muted;
@@ -145,7 +140,6 @@ public:		// User declarations
 =======
 >>>>>>> parent of 08513db... commit 720 1439
        std::vector<AnsiString> song_name_list;
-       std::vector<std::string> lyric_words;
 
         __fastcall TForm1(TComponent* Owner);
 };

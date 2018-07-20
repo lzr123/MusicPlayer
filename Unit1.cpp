@@ -8,9 +8,6 @@
 #include <ctime>
 #include <cstdlib>
 #include <algorithm>
-#include <fstream>
-#include <string>
-
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -58,11 +55,14 @@ __fastcall TForm1::TForm1(TComponent* Owner)
     lyric_displayer_array[4] = Label10;
     lyric_displayer_array[5] = Label11;
     lyric_displayer_array[6] = Label12;
+<<<<<<< HEAD
 
     loadLyric((apploc + "\\lyrics\\stan.lrc").c_str());
     showLyric();
 =======
 >>>>>>> parent of 08513db... commit 720 1439
+=======
+>>>>>>> parent of 929c27a... commit 720 1625
 }
 //---------------------------------------------------------------------------
 /*
@@ -577,23 +577,4 @@ void __fastcall TForm1::Image1MouseUp(TObject *Sender, TMouseButton Button,
 
 
 
-void __fastcall TForm1::loadLyric(std::string lyricloc)
-{
-	std::ifstream fin(lyricloc.c_str());
-    if(fin.is_open())
-    {
-    	std::string words;
-        while(getline(fin, words))
-        {
-        	lyric_words.push_back(words);
-        }
-    }
-}
 
-void __fastcall TForm1::showLyric()
-{
-	for(int i = 0; i < 7; i++)
-    {
-    	lyric_displayer_array[i]->Caption = AnsiString(lyric_words[i].c_str());
-    }
-}

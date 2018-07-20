@@ -1,18 +1,27 @@
 object Form1: TForm1
 <<<<<<< HEAD
+<<<<<<< HEAD
   Left = 169
   Top = 283
 =======
   Left = 152
   Top = 58
 >>>>>>> parent of 08513db... commit 720 1439
+=======
+  Left = 156
+  Top = 135
+>>>>>>> parent of 929c27a... commit 720 1625
   HorzScrollBar.Smooth = True
   HorzScrollBar.Style = ssFlat
   AlphaBlend = True
   BorderStyle = bsSingle
   Caption = 'Form1'
 <<<<<<< HEAD
+<<<<<<< HEAD
   ClientHeight = 587
+=======
+  ClientHeight = 586
+>>>>>>> parent of 929c27a... commit 720 1625
   ClientWidth = 868
 =======
   ClientHeight = 586
@@ -243,12 +252,17 @@ object Form1: TForm1
 <<<<<<< HEAD
     Left = 360
     Top = 16
+<<<<<<< HEAD
 =======
     Left = 368
     Top = 8
 >>>>>>> parent of 08513db... commit 720 1439
     Width = 40
     Height = 19
+=======
+    Width = 209
+    Height = 25
+>>>>>>> parent of 929c27a... commit 720 1625
     Caption = 'Label1'
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
@@ -268,6 +282,7 @@ object Form1: TForm1
 <<<<<<< HEAD
     Left = 352
     Top = 72
+<<<<<<< HEAD
     Width = 32
     Height = 13
 =======
@@ -276,6 +291,10 @@ object Form1: TForm1
     Width = 393
     Height = 393
 >>>>>>> parent of 08513db... commit 720 1439
+=======
+    Width = 401
+    Height = 25
+>>>>>>> parent of 929c27a... commit 720 1625
     Caption = 'Label3'
   end
   object Label4: TLabel
@@ -1102,8 +1121,8 @@ object Form1: TForm1
     OnClick = SpeedButton6Click
   end
   object SpeedButton7: TSpeedButton
-    Left = 848
-    Top = 528
+    Left = 768
+    Top = 64
     Width = 33
     Height = 33
     Flat = True
@@ -1337,43 +1356,43 @@ object Form1: TForm1
   object Label7: TLabel
     Left = 352
     Top = 120
-    Width = 32
-    Height = 13
+    Width = 401
+    Height = 25
     Caption = 'Label7'
   end
   object Label8: TLabel
     Left = 352
     Top = 168
-    Width = 32
-    Height = 13
+    Width = 401
+    Height = 25
     Caption = 'Label8'
   end
   object Label9: TLabel
     Left = 352
     Top = 216
-    Width = 32
-    Height = 13
+    Width = 401
+    Height = 25
     Caption = 'Label9'
   end
   object Label10: TLabel
     Left = 352
     Top = 264
-    Width = 38
-    Height = 13
+    Width = 401
+    Height = 25
     Caption = 'Label10'
   end
   object Label11: TLabel
     Left = 352
     Top = 312
-    Width = 38
-    Height = 13
+    Width = 409
+    Height = 25
     Caption = 'Label11'
   end
   object Label12: TLabel
     Left = 352
     Top = 360
-    Width = 38
-    Height = 13
+    Width = 409
+    Height = 25
     Caption = 'Label12'
 =======
       FF00FFFFFF00FFFFFF00FFFFFF00FAEFD700FFFFFF00FFFFFF00FFFFFF00FFFF
@@ -1407,7 +1426,7 @@ object Form1: TForm1
   end
   object OpenDialog1: TOpenDialog
     Options = [ofHideReadOnly, ofAllowMultiSelect, ofEnableSizing]
-    Left = 808
+    Left = 800
     Top = 96
   end
   object Timer1: TTimer
