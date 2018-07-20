@@ -44,6 +44,7 @@ __fastcall TForm1::TForm1(TComponent* Owner)
     updateTimeDisplay(0, Label4);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     getSystemVolume();
     Label6->Caption = AnsiString(current_volume);
@@ -64,6 +65,8 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 >>>>>>> parent of 08513db... commit 720 1439
 =======
 >>>>>>> parent of 929c27a... commit 720 1625
+=======
+>>>>>>> parent of 08513db... commit 720 1439
 =======
 >>>>>>> parent of 08513db... commit 720 1439
 }
